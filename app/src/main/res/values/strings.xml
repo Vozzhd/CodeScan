@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">CodeScan</string>
+    <string name="main_screen">Отправка</string>
+    <string name="history_screen">История</string>
 </resources>
