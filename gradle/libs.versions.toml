@@ -2,6 +2,7 @@
 agp = "8.5.0"
 kotlin = "1.9.0"
 coreKtx = "1.13.1"
+activityKtx = "1.4.0"
 junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
@@ -9,16 +10,56 @@ appcompat = "1.7.0"
 material = "1.12.0"
 activity = "1.9.3"
 constraintlayout = "2.1.4"
+fragmentKtx = "1.5.6"
+
+#Build constants
+koinAndroid = "3.3.0"
+navigationFragmentKtx = "2.7.7"
+kotlinxCoroutinesAndroid = "1.6.4"
+retrofit = "2.9.0"
+gson = "2.10"
+glide = "4.14.2"
+roomVersion = "2.6.1"
 
 [libraries]
-androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+
 junit = { group = "junit", name = "junit", version.ref = "junit" }
-androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
-androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
+navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigationFragmentKtx" }
+kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinxCoroutinesAndroid" }
+koin-android = { module = "io.insert-koin:koin-android", version.ref = "koinAndroid" }
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
+gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
+glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
+compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "glide" }
+room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomVersion" }
+room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomVersion" }
+room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomVersion" }
+activity-ktx = { module = "androidx.activity:activity-ktx", version.ref = "activityKtx" }
+fragment-ktx = { module = "androidx.fragment:fragment-ktx", version.ref = "fragmentKtx" }
+androidX-appCompat = "androidx.appcompat:appcompat:1.6.1"
+
+# AndroidX
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+
+# UI layer libraries
+ui-material = "com.google.android.material:material:1.10.0"
+ui-constraintLayout = "androidx.constraintlayout:constraintlayout:2.1.4"
+
+# Unit tests
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+
+# UI tests
+uiTests-junitExt = "androidx.test.ext:junit:1.1.5"
+uiTests-espressoCore = "androidx.test.espresso:espresso-core:3.5.1"
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
