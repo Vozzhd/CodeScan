@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/vacancySearchFragment"
+        android:id="@+id/scanFragment"
         android:icon="@drawable/ic_scan_qrcode"
-        android:title="@string/main_screen" />
+        android:title="@string/scan_screen" />
     <item
-        android:id="@+id/favoriteFragment"
+        android:id="@+id/historyFragment"
         android:icon="@drawable/ic_history"
         android:title="@string/history_screen" />
 </menu>

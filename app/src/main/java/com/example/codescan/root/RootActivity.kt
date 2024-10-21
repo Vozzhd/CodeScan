@@ -1,12 +1,10 @@
-package com.example.codescan
+package com.example.codescan.root
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import com.example.codescan.R
 import com.example.codescan.databinding.ActivityRootBinding
 
 class RootActivity : AppCompatActivity() {
@@ -17,7 +15,6 @@ class RootActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _binding = ActivityRootBinding.inflate(layoutInflater)
-        enableEdgeToEdge()
         setContentView(binding.root)
 
 

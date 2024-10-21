@@ -16,7 +16,7 @@
         android:theme="@style/Theme.CodeScan"
         tools:targetApi="31">
         <activity
-            android:name=".RootActivity"
+            android:name=".root.RootActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan"
