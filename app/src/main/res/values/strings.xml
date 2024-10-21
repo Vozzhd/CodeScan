@@ -2,4 +2,6 @@
     <string name="app_name">CodeScan</string>
     <string name="scan_screen">Сканирование</string>
     <string name="history_screen">История</string>
+    <string name="line_barcode">QR-код линии</string>
+    <string name="box_barcode">QR-код коробки</string>
 </resources>
