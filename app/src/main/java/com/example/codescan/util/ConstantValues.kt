@@ -14,7 +14,6 @@ open class ConstantValues {
         const val LRSCANNER_ACTION_CANCEL = "android.intent.action.LRSCANNER_BUTTON_UP"
 
         const val SCANNER_ACTION_BARCODE = "com.android.server.scannerservice.broadcast"
-
         const val SCANNER_EXTRA_BARCODE_DATA = "m3scannerdata"
         const val SCANNER_EXTRA_BARCODE_CODE_TYPE = "m3scanner_code_type"
         const val SCANNER_EXTRA_MODULE_TYPE = "m3scanner_module_type"
@@ -37,8 +36,7 @@ open class ConstantValues {
 
         // add 20200226 imageCapture
         const val SCANNER_ACTION_TAKE_PICTURE = "android.intent.action.SCANNER_TAKE_PICTURE"
-        const val SCANNER_ACTION_TAKE_PICTURE_PATH =
-            "android.intent.action.SCANNER_TAKE_PICTURE_PATH"
+        const val SCANNER_ACTION_TAKE_PICTURE_PATH = "android.intent.action.SCANNER_TAKE_PICTURE_PATH"
         const val SCANNER_EXTRA_TAKE_PICTURE_PATH = "take_picture_path"
         const val SCANNER_ACTION_SETTING_CHANGE = "com.android.server.scannerservice.settingchange"
     }
