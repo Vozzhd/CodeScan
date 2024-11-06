@@ -7,6 +7,7 @@ import android.widget.Toast
 
 class BarcodeBroadcastReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context?, intent: Intent?) {
-        Toast.makeText(context,ConstantValues.SCANNER_EXTRA_BARCODE_DATA,Toast.LENGTH_LONG).show()
+        val txt = intent?.getStringExtra(ConstantValues.SCANNER_EXTRA_BARCODE_DATA)
+        Toast.makeText(context,txt,Toast.LENGTH_LONG).show()
     }
 }
