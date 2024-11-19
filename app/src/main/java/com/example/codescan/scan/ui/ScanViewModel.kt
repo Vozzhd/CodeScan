@@ -1,4 +1,4 @@
-package com.example.codescan.scan
+package com.example.codescan.scan.ui
 
 import androidx.lifecycle.ViewModel
 
