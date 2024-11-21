@@ -11,7 +11,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 val dataModule = module {
     single<ApiService> {
         Retrofit.Builder()
-            .baseUrl("")
+            .baseUrl("http://10.170.190.230/package-traceability-api/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(ApiService::class.java)
