@@ -11,8 +11,8 @@ import com.example.codescan.R
 import com.example.codescan.root.BarcodeBroadcastReceiver
 import com.example.codescan.util.ConstantValues.Companion.SCANNER_ACTION_BARCODE
 
-class ScanFragment : Fragment() {
-    private val barcodeBroadcastReceiver = BarcodeBroadcastReceiver()
+class ScanFragment() : Fragment() {
+
 
     companion object {
         fun newInstance() = ScanFragment()
@@ -32,11 +32,12 @@ class ScanFragment : Fragment() {
         val intentFilter = IntentFilter()
         intentFilter.addAction(SCANNER_ACTION_BARCODE)
 
-        requireActivity().registerReceiver(
-            barcodeBroadcastReceiver,
-            intentFilter,
-            Context.RECEIVER_NOT_EXPORTED
-        )
+
+//        requireActivity().registerReceiver(
+//            barcodeBroadcastReceiver,
+//            intentFilter,
+//            Context.RECEIVER_NOT_EXPORTED
+//        )
 
 //        registerReceiver(
 //            requireContext(),
@@ -47,7 +48,7 @@ class ScanFragment : Fragment() {
     }
 
     override fun onStop() {
-        requireActivity().unregisterReceiver(barcodeBroadcastReceiver)
+        //       requireActivity().unregisterReceiver(barcodeBroadcastReceiver)
         super.onStop()
     }
 

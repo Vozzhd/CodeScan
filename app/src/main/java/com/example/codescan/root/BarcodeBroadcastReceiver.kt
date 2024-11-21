@@ -4,12 +4,20 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.widget.Toast
-import com.example.codescan.scan.data.ScanRepositoryImplementation
+import com.example.codescan.scan.domain.api.ScanInteractor
+import com.example.codescan.scan.domain.entity.BoxData
 import com.example.codescan.util.ConstantValues
 
-class BarcodeBroadcastReceiver : BroadcastReceiver() {
+class BarcodeBroadcastReceiver(
+    private val scanInteractor: ScanInteractor
+) : BroadcastReceiver() {
     override fun onReceive(context: Context?, intent: Intent?) {
-        val txt = intent?.getStringExtra(ConstantValues.SCANNER_EXTRA_BARCODE_DATA)
-        Toast.makeText(context, txt, Toast.LENGTH_LONG).show()
+        readBox = BoxData("112233", "44556677889900")
+//        val txt = intent?.getStringExtra(ConstantValues.SCANNER_EXTRA_BARCODE_DATA)
+//        Toast.makeText(context, txt, Toast.LENGTH_LONG).show()
+    }
+
+    companion object {
+        var readBox: BoxData = BoxData("7","7")
     }
 }
