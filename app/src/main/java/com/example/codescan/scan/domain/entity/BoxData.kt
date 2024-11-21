@@ -1,6 +1,6 @@
 package com.example.codescan.scan.domain.entity
 
 data class BoxData(
-    val lineId: String,
-    val boxId: String,
+    val lineCode: String,
+    val packageCode: String,
 )
