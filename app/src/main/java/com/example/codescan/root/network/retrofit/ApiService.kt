@@ -5,6 +5,6 @@ import retrofit2.http.Body
 import retrofit2.http.POST
 
 interface ApiService {
-    @POST("/posts")
+    @POST("LinePackageRelation")
     suspend fun postData(@Body data: BoxData): Response
 }
