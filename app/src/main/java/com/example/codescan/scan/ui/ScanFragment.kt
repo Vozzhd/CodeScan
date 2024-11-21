@@ -37,6 +37,7 @@ class ScanFragment : Fragment() {
             intentFilter,
             Context.RECEIVER_NOT_EXPORTED
         )
+
 //        registerReceiver(
 //            requireContext(),
 //            barcodeBroadcastReceiver,
