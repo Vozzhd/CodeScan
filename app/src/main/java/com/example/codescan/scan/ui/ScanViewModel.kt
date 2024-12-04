@@ -1,31 +1,29 @@
 package com.example.codescan.scan.ui
 
-import android.content.Context
-import android.content.IntentFilter
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.codescan.root.BarcodeBroadcastReceiver
-import com.example.codescan.util.ConstantValues.Companion.SCANNER_ACTION_BARCODE
 
 class ScanViewModel : ViewModel() {
 
-    private val boxMutableLiveData = MutableLiveData<String>()
+    private val lineData = MutableLiveData<String>()
+    fun observeLineData(): LiveData<String> = lineData
 
-    fun observeBoxLiveData(): LiveData<String> = boxMutableLiveData
+    private val boxData = MutableLiveData<String>()
+    fun observeBoxData(): LiveData<String> = boxData
 
-    private val barcodeBroadcastReceiver: BarcodeBroadcastReceiver = BarcodeBroadcastReceiver()
-
-    fun registerBroadcastReceiver(context: Context) {
-        val intentFilter = IntentFilter()
-        intentFilter.addAction(SCANNER_ACTION_BARCODE)
-        context.applicationContext.registerReceiver(
-            barcodeBroadcastReceiver,
-            intentFilter,
-            Context.RECEIVER_NOT_EXPORTED
-        )
+    fun manageScanData(scanData: String) {
+        when (scanData) {
+            "1", "2" -> manageLineCode(scanData)
+            else -> manageBoxCode(scanData)
+        }
     }
 
-
+    private fun manageLineCode(scanData: String) {
+        lineData.postValue(scanData)
+    }
+    private fun manageBoxCode(scanData: String) {
+        boxData.postValue(scanData)
+    }
 
 }
