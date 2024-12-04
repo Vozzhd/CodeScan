@@ -8,10 +8,11 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.codescan.R
+import com.example.codescan.util.App.Companion.readCode
 import com.example.codescan.util.ConstantValues.Companion.SCANNER_ACTION_BARCODE
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class ScanFragment() : Fragment() {
+class ScanFragment : Fragment() {
     private val viewModel by viewModel<ScanViewModel>()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -19,7 +20,6 @@ class ScanFragment() : Fragment() {
     ): View {
         return inflater.inflate(R.layout.fragment_scan, container, false)
     }
-
 
     override fun onStart() {
         super.onStart()
@@ -46,18 +46,13 @@ class ScanFragment() : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        readCode.observe(viewLifecycleOwner) {
+            Toast.makeText(context, it, Toast.LENGTH_LONG).show()
+        }
         viewModel.registerBroadcastReceiver(requireContext())
         viewModel.observeBoxLiveData().observe(viewLifecycleOwner) {
             Toast.makeText(context, it, Toast.LENGTH_LONG).show()
         }
     }
 
-    override fun onStop() {
-        //       requireActivity().unregisterReceiver(barcodeBroadcastReceiver)
-        super.onStop()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-    }
 }
