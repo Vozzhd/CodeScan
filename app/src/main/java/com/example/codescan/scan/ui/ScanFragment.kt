@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.content.ContextCompat.registerReceiver
 import androidx.fragment.app.Fragment
@@ -19,6 +18,7 @@ class ScanFragment : Fragment() {
 
     private val viewModel by viewModel<ScanViewModel>()
     private val barcodeBroadcastReceiver: BarcodeBroadcastReceiver = BarcodeBroadcastReceiver()
+
     private var _binding: FragmentScanBinding? = null
     private val binding get() = _binding!!
 
@@ -49,12 +49,13 @@ class ScanFragment : Fragment() {
 
         readCode.observe(viewLifecycleOwner) {
             viewModel.manageScanData(it)
-            Toast.makeText(context, it, Toast.LENGTH_LONG).show()
         }
 
         viewModel.observeLineData().observe(viewLifecycleOwner) { writeDataToLineField(it) }
         viewModel.observeBoxData().observe(viewLifecycleOwner) { writeDataToBoxField(it) }
-
+        binding.postButton.setOnClickListener {
+            viewModel.postData()
+        }
     }
 
     private fun writeDataToBoxField(scannedBoxNumber: String?) {

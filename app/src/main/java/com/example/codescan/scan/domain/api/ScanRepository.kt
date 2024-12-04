@@ -5,5 +5,5 @@ import com.example.codescan.util.Resource
 import kotlinx.coroutines.flow.Flow
 
 interface ScanRepository {
-    fun postData(data: BoxData):Flow<Resource<String>>
+    fun postData(data: BoxData): Flow<Resource<String>>
 }

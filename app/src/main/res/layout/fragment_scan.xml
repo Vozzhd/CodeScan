@@ -27,7 +27,7 @@
             android:clickable="false"
             android:focusable="false"
             android:focusableInTouchMode="false"
-            android:gravity="center_vertical"
+            android:gravity="center"
             android:hint="@string/line_barcode"
             android:importantForAutofill="no"
             android:singleLine="true" />
@@ -67,7 +67,7 @@
             android:clickable="false"
             android:focusable="false"
             android:focusableInTouchMode="false"
-            android:gravity="center_vertical"
+            android:gravity="center"
             android:hint="@string/box_barcode"
             android:importantForAutofill="no"
             android:singleLine="true" />
@@ -84,6 +84,16 @@
             tools:ignore="contentDescription"
             android:visibility="gone"/>
     </FrameLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/postButton"
+        android:layout_marginTop="32dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="POST"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/box_frame_layout" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

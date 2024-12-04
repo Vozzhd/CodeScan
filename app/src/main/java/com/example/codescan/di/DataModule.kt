@@ -1,6 +1,5 @@
 package com.example.codescan.di
 
-import com.example.codescan.root.BarcodeBroadcastReceiver
 import com.example.codescan.root.network.NetworkClient
 import com.example.codescan.root.network.retrofit.ApiService
 import com.example.codescan.root.network.retrofit.RetrofitNetworkClient
@@ -10,6 +9,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 val dataModule = module {
+
     single<ApiService> {
         Retrofit.Builder()
             .baseUrl("http://10.170.190.230/package-traceability-api/")
@@ -19,7 +19,5 @@ val dataModule = module {
     }
 
     single<NetworkClient> { RetrofitNetworkClient(androidContext(), get()) }
-//    factory {
-//        BarcodeBroadcastReceiver(get())
-//    }
+
 }
