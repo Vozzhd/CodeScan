@@ -1,6 +1,7 @@
 package com.example.codescan.util
 
 import android.app.Application
+import androidx.lifecycle.MutableLiveData
 import com.example.codescan.di.dataModule
 import com.example.codescan.di.interactorModule
 import com.example.codescan.di.repositoryModule
@@ -16,5 +17,9 @@ class App : Application() {
             androidContext(this@App)
             modules(dataModule, interactorModule, repositoryModule, viewModelModule)
         }
+
+    }
+    companion object {
+        val readCode = MutableLiveData<String>()
     }
 }

@@ -1,5 +1,6 @@
 package com.example.codescan.di
 
+import com.example.codescan.root.BarcodeBroadcastReceiver
 import com.example.codescan.root.network.NetworkClient
 import com.example.codescan.root.network.retrofit.ApiService
 import com.example.codescan.root.network.retrofit.RetrofitNetworkClient
@@ -18,5 +19,7 @@ val dataModule = module {
     }
 
     single<NetworkClient> { RetrofitNetworkClient(androidContext(), get()) }
-
+//    factory {
+//        BarcodeBroadcastReceiver(get())
+//    }
 }
