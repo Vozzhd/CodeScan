@@ -3,6 +3,7 @@ package com.example.codescan.root.network.retrofit
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
+import com.example.codescan.history.domain.impl.GetDataRequest
 import com.example.codescan.root.network.NetworkClient
 import com.example.codescan.scan.data.network.PostDataRequest
 import kotlinx.coroutines.Dispatchers
@@ -14,7 +15,7 @@ class RetrofitNetworkClient(
     private val context: Context,
     private val apiService: ApiService
 ) : NetworkClient {
-    override suspend fun postData(dto: Any): Response {
+    override suspend fun doRequest(dto: Any): Response {
 
         val responseCode = Response()
 
@@ -25,8 +26,9 @@ class RetrofitNetworkClient(
         } else {
             withContext(Dispatchers.IO) {
                 try {
-                    if (dto is PostDataRequest) {
-                        apiService.postData(dto.data)
+                    when (dto) {
+                        is PostDataRequest -> apiService.postData(dto.data)
+                        is GetDataRequest -> apiService.getData()
                     }
                     responseCode.resultCode = 200
                 } catch (ioException: IOException) {

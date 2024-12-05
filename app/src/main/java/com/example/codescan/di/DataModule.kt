@@ -18,6 +18,8 @@ val dataModule = module {
             .create(ApiService::class.java)
     }
 
-    single<NetworkClient> { RetrofitNetworkClient(androidContext(), get()) }
+    single<NetworkClient> {
+        RetrofitNetworkClient(androidContext(), get())
+    }
 
 }

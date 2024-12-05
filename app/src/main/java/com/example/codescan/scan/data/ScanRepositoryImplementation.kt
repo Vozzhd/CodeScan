@@ -12,7 +12,7 @@ class ScanRepositoryImplementation(
     private val networkClient: NetworkClient
 ) : ScanRepository {
     override fun postData(data: BoxData): Flow<Resource<String>> = flow {
-        val response = networkClient.postData(PostDataRequest(data))
+        val response = networkClient.doRequest(PostDataRequest(data))
         emit(
             when (response.resultCode) {
                 -1 -> Resource.Error("Connection error")
