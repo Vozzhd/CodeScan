@@ -25,17 +25,15 @@ class RetrofitNetworkClient(
             responseCode.resultCode = 400
         } else {
             withContext(Dispatchers.IO) {
-                try {
-                    when (dto) {
-                        is PostDataRequest -> apiService.postData(dto.data)
-                        is GetDataRequest -> apiService.getData()
-                    }
-                    responseCode.resultCode = 200
-                } catch (ioException: IOException) {
-                    responseCode.resultCode = 500
-                } catch (httpException: HttpException) {
-                    responseCode.resultCode = 400
+                //         try {
+                when (dto) {
+                    is PostDataRequest -> apiService.postData(dto.data)
+                    is GetDataRequest -> apiService.getData()
                 }
+                responseCode.resultCode = 200
+                //             } catch (ioException: IOException) { responseCode.resultCode = 500 } catch (httpException: HttpException) {
+                //                 responseCode.resultCode = 400
+                //              }
 
             }
         }
