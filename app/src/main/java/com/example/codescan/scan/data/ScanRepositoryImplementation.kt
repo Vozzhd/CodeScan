@@ -1,5 +1,6 @@
 package com.example.codescan.scan.data
 
+import android.util.Log
 import com.example.codescan.root.network.NetworkClient
 import com.example.codescan.scan.data.network.PostDataRequest
 import com.example.codescan.scan.domain.api.ScanRepository
@@ -12,13 +13,14 @@ class ScanRepositoryImplementation(
     private val networkClient: NetworkClient
 ) : ScanRepository {
     override fun postData(data: BoxData): Flow<Resource<String>> = flow {
-        val response = networkClient.postData(PostDataRequest(data))
-        emit(
+        val response = networkClient.doRequest(PostDataRequest(data))
             when (response.resultCode) {
-                -1 -> Resource.Error("Connection error")
-                200 -> Resource.Success(response.toString())
-                else -> Resource.Error("Unknown error")
+                -1 -> emit(Resource.Error("Connection error"))
+                200 ->emit(Resource.Success(response.toString()))
+                else -> {
+                    emit (Resource.Error("Unknown error"))
+                    Log.d("ScanResult", response.resultCode.toString())
+                }
             }
-        )
     }
 }

@@ -16,5 +16,6 @@ class ScanInteractorImplementation(private val repository: ScanRepository) :
                 is Resource.Error -> Pair("bad", result.message)
             }
         }
+
     }
 }
