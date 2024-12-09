@@ -1,5 +1,6 @@
 package com.example.codescan.history.domain.impl
 
+import android.util.Log
 import com.example.codescan.history.domain.api.HistoryRepository
 import com.example.codescan.root.network.NetworkClient
 import com.example.codescan.scan.domain.entity.BoxData
@@ -24,7 +25,10 @@ class HistoryRepositoryImpl(
                     emit(Resource.Success(data))
                 }
             }
-            else -> emit(Resource.Error("Internet error"))
+            else -> {
+                emit(Resource.Error("Internet error"))
+                Log.d("HistoryResult", response.resultCode.toString())
+            }
         }
     }
 }

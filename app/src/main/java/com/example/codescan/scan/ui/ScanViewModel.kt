@@ -1,5 +1,6 @@
 package com.example.codescan.scan.ui
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -27,7 +28,11 @@ class ScanViewModel(
 
     fun postData() {
         viewModelScope.launch {
-            scanInteractor.postData(BoxData("22", "44"))
+            scanInteractor
+                .postData(BoxData("22", "44"))
+                .collect {
+                    Log.d("CYKA", it.toString())
+                }
         }
     }
 
